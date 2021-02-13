@@ -51,7 +51,7 @@ module.exports = {
 		if (tickets.count >= config.tickets.max) {
 			let ticketList = [];
 			for (let t in tickets.rows) {
-				let desc = tickets.rows[t].topic.substring(0, 30);
+				let desc = tickets.rows[t].Onderwerp.substring(0, 30);
 				ticketList
 					.push(`<#${tickets.rows[t].channel}>: \`${desc}${desc.length > 30 ? '...' : ''}\``);
 			}
@@ -72,8 +72,8 @@ module.exports = {
 		}
 
 
-		let topic = args.join(' ');
-		if (topic.length > 256) {
+		let Onderwerp = args.join(' ');
+		if (Onderwerp.length > 256) {
 			return message.channel.send(
 				new MessageEmbed()
 					.setColor(config.err_colour)
@@ -83,8 +83,8 @@ module.exports = {
 					.setFooter(guild.name, guild.iconURL())
 			);
 		}
-		else if (topic.length < 1) {
-			topic = config.tickets.default_topic.command;
+		else if (Onderwerp.length < 1) {
+			Onderwerp = config.tickets.default_Onderwerp.command;
 		}
 
 		let ticket = await Ticket.create({
@@ -92,14 +92,14 @@ module.exports = {
 			creator: message.author.id,
 			open: true,
 			archived: false,
-			topic: topic
+			Onderwerp: Onderwerp
 		});
 
 		let name = 'ticket-' + ticket.get('id');
 
 		guild.channels.create(name, {
 			type: 'text',
-			topic: `${message.author} | ${topic}`,
+			Onderwerp: `${message.author} | ${Onderwerp}`,
 			parent: config.tickets.category,
 			permissionOverwrites: [{
 				id: guild.roles.everyone,
@@ -178,7 +178,7 @@ module.exports = {
 					.setColor(config.colour)
 					.setAuthor(message.author.username, message.author.displayAvatarURL())
 					.setDescription(text)
-					.addField('Topic', `\`${topic}\``)
+					.addField('Onderwerp', `\`${Onderwerp}\``)
 					.setFooter(guild.name, guild.iconURL())
 			);
 
@@ -191,7 +191,7 @@ module.exports = {
 						.setColor(config.colour)
 						.setAuthor(message.author.username, message.author.displayAvatarURL())
 						.setTitle('New ticket')
-						.setDescription(`\`${topic}\``)
+						.setDescription(`\`${Onderwerp}\``)
 						.addField('Creator', message.author, true)
 						.addField('kanaal', c, true)
 						.setFooter(guild.name, guild.iconURL())

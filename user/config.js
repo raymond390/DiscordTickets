@@ -59,8 +59,8 @@ module.exports = {
 		Beschrijf ondertussen uw probleem zo gedetailleerd mogelijk!​`,
 		pin: false,
 		max: 3,
-		default_topic: {
-			command: 'Geen topic gegeven',
+		default_Onderwerp: {
+			command: 'Geen Onderwerp gegeven',
 			panel: 'Gemaakt via paneel'
 		}
 	},

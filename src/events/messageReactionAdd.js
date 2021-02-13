@@ -61,7 +61,7 @@ module.exports = {
 		if (tickets.count >= config.tickets.max) {
 			let ticketList = [];
 			for (let t in tickets.rows)  {
-				let desc = tickets.rows[t].topic.substring(0, 30);
+				let desc = tickets.rows[t].Onderwerp.substring(0, 30);
 				ticketList
 					.push(`<#${tickets.rows[t].channel}>: \`${desc}${desc.length > 30 ? '...' : ''}\``);
 			}
@@ -89,21 +89,21 @@ module.exports = {
 			}
 		}
 
-		let topic = config.tickets.default_topic.command;
+		let Onderwerp = config.tickets.default_Onderwerp.command;
 		
 		let ticket = await Ticket.create({
 			channel: '',
 			creator: u.id,
 			open: true,
 			archived: false,
-			topic: topic
+			Onderwerp: Onderwerp
 		});
 
 		let name = 'ticket-' + ticket.id;
 
 		channel.guild.channels.create(name, {
 			type: 'text',
-			topic: `${u} | ${topic}`,
+			Onderwerp: `${u} | ${Onderwerp}`,
 			parent: config.tickets.category,
 			permissionOverwrites: [{
 				id: channel.guild.roles.everyone,
@@ -167,7 +167,7 @@ module.exports = {
 					.setColor(config.colour)
 					.setAuthor(u.username, u.displayAvatarURL())
 					.setDescription(text)
-					.addField('Topic', `\`${topic}\``)
+					.addField('Onderwerp', `\`${Onderwerp}\``)
 					.setFooter(channel.guild.name, channel.guild.iconURL())
 			);
 
@@ -180,7 +180,7 @@ module.exports = {
 						.setColor(config.colour)
 						.setAuthor(u.username, u.displayAvatarURL())
 						.setTitle('New ticket (via panel)')
-						.setDescription(`\`${topic}\``)
+						.setDescription(`\`${Onderwerp}\``)
 						.addField('Creator', u, true)
 						.addField('Channel', c, true)
 						.setFooter(channel.guild.name, channel.guild.iconURL())

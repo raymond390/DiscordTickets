@@ -101,7 +101,7 @@ Ticket.init({
 	channel: DataTypes.STRING,
 	creator: DataTypes.STRING,
 	open: DataTypes.BOOLEAN,
-	topic: DataTypes.TEXT
+	Onderwerp: DataTypes.TEXT
 }, {
 	sequelize,
 	modelName: 'ticket'

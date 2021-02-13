@@ -113,7 +113,7 @@ module.exports.export = (Ticket, channel) => new Promise((resolve, reject) => {
 			name: channel.name,
 			creator: ticket.creator,
 			channel: channel.id,
-			topic: channel.topic
+			Onderwerp: channel.Onderwerp
 		};
 
 		data.messages = [];

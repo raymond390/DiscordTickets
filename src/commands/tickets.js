@@ -80,12 +80,12 @@ module.exports = {
 			closed = [];
 
 		for (let t in openTickets.rows)  {
-			let desc = openTickets.rows[t].topic.substring(0, 30);
+			let desc = openTickets.rows[t].Onderwerp.substring(0, 30);
 			open.push(`> <#${openTickets.rows[t].channel}>: \`${desc}${desc.length > 20 ? '...' : ''}\``);
 		}
 
 		for (let t in closedTickets.rows)  {
-			let desc = closedTickets.rows[t].topic.substring(0, 30);
+			let desc = closedTickets.rows[t].Onderwerp.substring(0, 30);
 			let transcript = '';
 			let c = closedTickets.rows[t].channel;
 			if (config.transcripts.web.enabled || fs.existsSync(join(__dirname, `../../user/transcripts/text/${c}.txt`))) {

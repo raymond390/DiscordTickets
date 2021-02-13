@@ -65,7 +65,7 @@ module.exports = {
 		}
 
 
-		message.channel.setTopic(`${member} | ${ticket.topic}`);
+		message.channel.setOnderwerp(`${member} | ${ticket.Onderwerp}`);
 
 		Ticket.update({
 			creator: member.user.id

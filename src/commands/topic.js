@@ -9,11 +9,11 @@
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-	name: 'topic',
-	description: 'verander de ticket topic',
-	usage: '<topic>',
+	name: 'Onderwerp',
+	description: 'verander de ticket Onderwerp',
+	usage: '<Onderwerp>',
 	aliases: ['edit'],
-	example: 'topic heeft hulp nodig',
+	example: 'Onderwerp heeft hulp nodig',
 	args: true,
 	async execute(client, message, args, {config, Ticket}) {
 		const guild = client.guilds.cache.get(config.guild);
@@ -37,8 +37,8 @@ module.exports = {
 			);
 		}
 
-		let topic = args.join(' ');
-		if (topic.length > 256) {
+		let Onderwerp = args.join(' ');
+		if (Onderwerp.length > 256) {
 			return message.channel.send(
 				new MessageEmbed()
 					.setColor(config.err_colour)
@@ -49,10 +49,10 @@ module.exports = {
 			);
 		}
 
-		message.channel.setTopic(`<@${ticket.creator}> | ` + topic);
+		message.channel.setOnderwerp(`<@${ticket.creator}> | ` + Onderwerp);
 
 		Ticket.update({
-			topic: topic
+			Onderwerp: Onderwerp
 		}, {
 			where: {
 				channel: message.channel.id
