@@ -95,7 +95,7 @@ module.exports = {
 
 	panel: {
 		title: 'Support Tickets',
-		description: 'Need help? No problem! React to this panel to create a new support ticket so our Support Team can assist you.',
+		description: 'Hulp nodig? Geen probleem! Reageer op dit panel om een ​​nieuw supportticket aan te maken, zodat ons supportteam u kan helpen.',
 		reaction: '🧾'
 	},
 
