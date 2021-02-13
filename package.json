@@ -31,7 +31,7 @@
 	},
 	"scripts": {
 		"start": "node src/",
-		"test": "echo \"Nothing to test! Run with 'npm start'\" && exit 1"
+		"test": "npm start"
 	},
 	"engines": {
 		"node": ">=12"
