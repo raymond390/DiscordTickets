@@ -63,7 +63,7 @@ case 'mysql':
 		logging: log.debug
 	});
 	break;
-default:
+case 'mariadb':
 	log.info('Connecting to MariaDB database...');
 	sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
 		dialect: 'mariadb',
@@ -87,7 +87,7 @@ case 'microsoft':
 		logging: log.debug
 	});
 	break;
-case 'mysql':
+default:
 	log.info('Using SQLite storage');
 	sequelize = new Sequelize({
 		dialect: 'sqlite',
