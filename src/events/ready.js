@@ -34,8 +34,7 @@ module.exports = {
 		}, 60000);
 
 
-		if (client.guilds.cache.get(config.guild).member(client.user).hasPermission('ADMINISTRATOR', false)) {
-			log.success('\'ADMINISTRATOR\' permission has been granted');
-		} else log.warn('Bot does not have \'ADMINISTRATOR\' permission');
+	
+		
 	}
 };

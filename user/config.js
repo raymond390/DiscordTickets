@@ -47,11 +47,11 @@ module.exports = {
 	colour: '#009999',
 	err_colour: 'RED',
 	cooldown: 3,
-	guild: '', // ID of your guild (REQUIRED)
-	staff_role: '', // ID of your Support Team role (REQUIRED)
+	guild: '809455152300818525', // ID of your guild (REQUIRED)
+	staff_role: '809456519711948800', // ID of your Support Team role (REQUIRED)
 
 	tickets: {
-		category: '', // ID of your tickets category (REQUIRED)
+		category: '809455152863117322', // ID of your tickets category (REQUIRED)
 		send_img: true,
 		ping: 'here',
 		text: `Hello there, {{ tag }}!
