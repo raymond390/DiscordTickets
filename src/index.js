@@ -169,4 +169,4 @@ process.on('unhandledRejection', error => {
 	log.error(error);
 });
 
-client.login(process.env.TOKEN);
+client.login(process.env.token);
