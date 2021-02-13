@@ -15,7 +15,7 @@ const {
 
 module.exports = {
 	name: 'transcript',
-	description: 'Download a transcript',
+	description: 'Download een transcript',
 	usage: '<ticket-id>',
 	aliases: ['archive', 'download'],
 	example: 'transcript 57',
@@ -37,8 +37,8 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.err_colour)
 					.setAuthor(message.author.username, message.author.displayAvatarURL())
-					.setTitle('❌ **Unknown ticket**')
-					.setDescription('Couldn\'t find a closed ticket with that ID')
+					.setTitle('❌ **Onbekende ticket**')
+					.setDescription('Kan geen gesloten ticket met dat ID vinden')
 					.setFooter(guild.name, guild.iconURL())
 			);
 		}
@@ -48,8 +48,8 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.err_colour)
 					.setAuthor(message.author.username, message.author.displayAvatarURL())
-					.setTitle('❌ **No permission**')
-					.setDescription(`You don't have permission to view ticket ${id} as it does not belong to you and you are not staff.`)
+					.setTitle('❌ **Geen rechten**')
+					.setDescription(`U heeft geen toestemming om ticket ${id} te bekijken, aangezien het niet van u is en u geen staff bent.`)
 					.setFooter(guild.name, guild.iconURL())
 			);
 		}
@@ -63,7 +63,7 @@ module.exports = {
 
 		let file = `../../user/transcripts/text/${ticket.channel}.txt`;
 		if (fs.existsSync(join(__dirname, file))) {
-			embed.addField('Text transcript', 'See attachment');
+			embed.addField('Tekst transcript', 'Bekijk bijlage');
 			res.files = [
 				{
 					attachment: join(__dirname, file),
@@ -76,7 +76,7 @@ module.exports = {
 		const BASE_URL = config.transcripts.web.server;
 		if (config.transcripts.web.enabled) embed.addField('Web archive', `${BASE_URL}/${ticket.creator}/${ticket.channel}`);
 
-		if (embed.fields.length < 1) embed.setDescription(`No text transcripts or archive data exists for ticket ${id}`);
+		if (embed.fields.length < 1) embed.setDescription(`Er zijn geen teksttranscripties of archiefgegevens voor ticket ${id}`);
 
 		res.embed = embed;
 

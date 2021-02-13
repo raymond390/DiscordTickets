@@ -10,7 +10,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'transfer',
-	description: 'Transfer ownership of a ticket channel',
+	description: 'Draag het eigendom van een ticketkanaal over',
 	usage: '<@member>',
 	aliases: ['none'],
 	example: 'transfer @user',
@@ -29,10 +29,10 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.err_colour)
 					.setAuthor(message.author.username, message.author.displayAvatarURL())
-					.setTitle('❌ **This isn\'t a ticket channel**')
-					.setDescription('Use this command in the ticket channel you want to change owner.')
-					.addField('Usage', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
-					.addField('Help', `Type \`${config.prefix}help ${this.name}\` for more information`)
+					.setTitle('❌ **Dit is geen ticketkanaal**')
+					.setDescription('Gebruik deze opdracht in het ticketkanaal waarvan u de eigenaar wilt wijzigen.')
+					.addField('Gebruik', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
+					.addField('Help', `Typ \`${config.prefix}help ${this.name}\` Voor meer informatie`)
 					.setFooter(guild.name, guild.iconURL())
 			);
 		}
@@ -42,8 +42,8 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.err_colour)
 					.setAuthor(message.author.username, message.author.displayAvatarURL())
-					.setTitle('❌ **No permission**')
-					.setDescription('You don\'t have permission to change ownership of this channel as you are not staff.')
+					.setTitle('❌ **Geen rechten**')
+					.setDescription('Je hebt geen toestemming om het eigendom van dit kanaal te veranderen, aangezien je geen staff bent.')
 					.addField('Usage', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
 					.addField('Help', `Type \`${config.prefix}help ${this.name}\` for more information`)
 					.setFooter(guild.name, guild.iconURL())
@@ -56,10 +56,10 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.err_colour)
 					.setAuthor(message.author.username, message.author.displayAvatarURL())
-					.setTitle('❌ **Unknown member**')
-					.setDescription('Please mention a valid member.')
-					.addField('Usage', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
-					.addField('Help', `Type \`${config.prefix}help ${this.name}\` for more information`)
+					.setTitle('❌ **Onbekende gebruiker**')
+					.setDescription('Vermeld een geldig lid.')
+					.addField('Gebruik', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
+					.addField('Help', `Type \`${config.prefix}help ${this.name}\`Voor meer informatie`)
 					.setFooter(guild.name, guild.iconURL())
 			);
 		}

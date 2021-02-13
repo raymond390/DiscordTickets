@@ -10,10 +10,10 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'topic',
-	description: 'Edit a ticket topic',
+	description: 'verander de ticket topic',
 	usage: '<topic>',
 	aliases: ['edit'],
-	example: 'topic need help error',
+	example: 'topic heeft hulp nodig',
 	args: true,
 	async execute(client, message, args, {config, Ticket}) {
 		const guild = client.guilds.cache.get(config.guild);
@@ -29,10 +29,10 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.err_colour)
 					.setAuthor(message.author.username, message.author.displayAvatarURL())
-					.setTitle('❌ **This isn\'t a ticket channel**')
-					.setDescription('Use this command in the ticket channel you want to close, or mention the channel.')
-					.addField('Usage', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
-					.addField('Help', `Type \`${config.prefix}help ${this.name}\` for more information`)
+					.setTitle('❌ **Dit is geen ticketkanaal**')
+					.setDescription('Gebruik deze opdracht in het ticketkanaal dat je wilt sluiten, of noem het kanaal.')
+					.addField('gebruik', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
+					.addField('Help', `Typ \`${config.prefix}help ${this.name}\` Voor meer informatie`)
 					.setFooter(guild.name, guild.iconURL())
 			);
 		}
@@ -43,8 +43,8 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.err_colour)
 					.setAuthor(message.author.username, message.author.displayAvatarURL())
-					.setTitle('❌ **Description too long**')
-					.setDescription('Please limit your ticket topic to less than 256 characters. A short sentence will do.')
+					.setTitle('❌ **Beschrijving te lang**')
+					.setDescription('Beperk uw ticketonderwerp tot minder dan 256 tekens. Een korte zin is voldoende.')
 					.setFooter(guild.name, guild.iconURL())
 			);
 		}
@@ -63,8 +63,8 @@ module.exports = {
 			new MessageEmbed()
 				.setColor(config.colour)
 				.setAuthor(message.author.username, message.author.displayAvatarURL())
-				.setTitle('✅ **Ticket updated**')
-				.setDescription('The topic has been changed.')
+				.setTitle('✅ **Ticket bijgewerkt**')
+				.setDescription('Het onderwerp is gewijzigd.')
 				.setFooter(client.user.username, client.user.displayAvatarURL())
 		);
 	}

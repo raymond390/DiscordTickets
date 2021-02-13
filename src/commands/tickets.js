@@ -12,7 +12,7 @@ const { join } = require('path');
 
 module.exports = {
 	name: 'tickets',
-	description: 'List your recent tickets to access transcripts / archives.',
+	description: 'Maak een lijst van uw recente tickets om toegang te krijgen tot transcripties / archieven.',
 	usage: '[@member]',
 	aliases: ['list'],
 	args: false,
@@ -25,7 +25,7 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.err_colour)
 					.setTitle('❌ **Error**')
-					.setDescription(`${config.name} has not been set up correctly. Could not find a 'support team' role with the id \`${config.staff_role}\``)
+					.setDescription(`${config.name} is niet correct ingesteld. Kan geen rol 'Support team' vinden met de id \`${config.staff_role}\``)
 					.setFooter(guild.name, guild.iconURL())
 			);
 		}
@@ -39,10 +39,10 @@ module.exports = {
 					new MessageEmbed()
 						.setColor(config.err_colour)
 						.setAuthor(message.author.username, message.author.displayAvatarURL())
-						.setTitle('❌ **No permission**')
-						.setDescription('You don\'t have permission to list others\' tickets as you are not staff.')
+						.setTitle('❌ **Geen toestemming**')
+						.setDescription('U heeft geen toestemming om tickets van anderen te vermelden, aangezien u geen personeel bent.')
 						.addField('Usage', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
-						.addField('Help', `Type \`${config.prefix}help ${this.name}\` for more information`)
+						.addField('Help', `Typ \`${config.prefix}help ${this.name}\` Voor meer informatie`)
 						.setFooter(guild.name, guild.iconURL())
 				);
 			}
@@ -70,7 +70,7 @@ module.exports = {
 			.setColor(config.colour)
 			.setAuthor(user.username, user.displayAvatarURL())
 			.setTitle(`${context === 'self' ? 'Your' : user.username + '\'s'} tickets`)
-			.setFooter(guild.name + ' | This message will be deleted in 60 seconds', guild.iconURL());
+			.setFooter(guild.name + ' | Dit bericht wordt binnen 60 seconden verwijderd', guild.iconURL());
 
 		/* if (config.transcripts.web.enabled) {
 			embed.setDescription(`You can access all of your ticket archives on the [web portal](${config.transcripts.web.server}/${user.id}).`);
@@ -89,7 +89,7 @@ module.exports = {
 			let transcript = '';
 			let c = closedTickets.rows[t].channel;
 			if (config.transcripts.web.enabled || fs.existsSync(join(__dirname, `../../user/transcripts/text/${c}.txt`))) {
-				transcript = `\n> Type \`${config.prefix}transcript ${closedTickets.rows[t].id}\` to view.`;
+				transcript = `\n> Typ \`${config.prefix}transcript ${closedTickets.rows[t].id}\` om te bekijken.`;
 			}
 
 			closed.push(`> **#${closedTickets.rows[t].id}**: \`${desc}${desc.length > 20 ? '...' : ''}\`${transcript}`);
@@ -97,8 +97,8 @@ module.exports = {
 		}
 
 		let pre = context === 'self' ? 'You have' : user.username + ' has';
-		embed.addField('Open tickets', openTickets.count === 0 ? `${pre} no open tickets.` : open.join('\n\n'), false);
-		embed.addField('Closed tickets', closedTickets.count === 0 ? `${pre} no old tickets` : closed.join('\n\n'), false);
+		embed.addField('Open tickets', openTickets.count === 0 ? `${pre} geen open tickets.` : open.join('\n\n'), false);
+		embed.addField('Gesloten tickets', closedTickets.count === 0 ? `${pre} geen ouwe tickets` : closed.join('\n\n'), false);
 
 		message.delete({timeout: 15000});
 

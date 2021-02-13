@@ -55,13 +55,13 @@ module.exports = {
 		send_img: true,
 		ping: 'here',
 		text: `Hello there, {{ tag }}!
-		A member of staff will assist you shortly.
-		In the mean time, please describe your issue in as much detail as possible! :)`,
+		Een medewerker zal u binnenkort helpen.
+		Beschrijf ondertussen uw probleem zo gedetailleerd mogelijk!​`,
 		pin: false,
 		max: 3,
 		default_topic: {
-			command: 'No topic given',
-			panel: 'Created via panel'
+			command: 'Geen topic gegeven',
+			panel: 'Gemaakt via paneel'
 		}
 	},
 
