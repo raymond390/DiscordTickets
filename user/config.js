@@ -35,11 +35,11 @@ module.exports = {
 			type: 'PLAYING'
 		},
 		{
-			activity: 'with tickets',
+			activity: 'met tickets',
 			type: 'PLAYING'
 		},
 		{
-			activity: 'for new tickets',
+			activity: 'voor nieuwe tickets',
 			type: 'WATCHING'
 		}
 	],
@@ -47,11 +47,11 @@ module.exports = {
 	colour: '#009999',
 	err_colour: 'RED',
 	cooldown: 3,
-	guild: '809455152300818525', // ID of your guild (REQUIRED)
-	staff_role: '809456519711948800', // ID of your Support Team role (REQUIRED)
+	guild: '804684861063299073', // ID of your guild (REQUIRED)
+	staff_role: '804742213942116422', // ID of your Support Team role (REQUIRED)
 
 	tickets: {
-		category: '809455152863117322', // ID of your tickets category (REQUIRED)
+		category: '804717995569446942', // ID of your tickets category (REQUIRED)
 		send_img: true,
 		ping: 'here',
 		text: `Hello there, {{ tag }}!
@@ -90,7 +90,7 @@ module.exports = {
 			enabled: false,
 			server: 'https://tickets.example.com',
 		},
-		channel: '810070427619557377' // ID of your archives channel
+		channel: '804722821695406130' // ID of your archives channel
 	},
 
 	panel: {
@@ -110,7 +110,7 @@ module.exports = {
 		},
 		discord: {
 			enabled: false,
-			channel: '810080619992186892' // ID of your log channel
+			channel: '804722821695406130' // ID of your log channel
 		}
 	},
 
