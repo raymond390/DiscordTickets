@@ -90,7 +90,7 @@ module.exports = {
 			enabled: false,
 			server: 'https://tickets.example.com',
 		},
-		channel: '' // ID of your archives channel
+		channel: '810070427619557377' // ID of your archives channel
 	},
 
 	panel: {

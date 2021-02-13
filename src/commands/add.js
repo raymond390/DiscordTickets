@@ -12,7 +12,7 @@ const log = new Logger();
 
 module.exports = {
 	name: 'add',
-	description: 'Add a member to a ticket channel',
+	description: 'voeg iemand toe aan een ticket',
 	usage: '<@member> [... #channel]',
 	aliases: ['none'],
 	example: 'add @member to #ticket-23',
@@ -23,10 +23,10 @@ module.exports = {
 		const notTicket = new MessageEmbed()
 			.setColor(config.err_colour)
 			.setAuthor(message.author.username, message.author.displayAvatarURL())
-			.setTitle('❌ **This isn\'t a ticket channel**')
-			.setDescription('Use this command in the ticket channel you want to add a user to, or mention the channel.')
+			.setTitle('❌ **Dit is\'geen ticket channel**')
+			.setDescription('Gebruik deze commando voor het toevoegen van een persoon in een tic')
 			.addField('Usage', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
-			.addField('Help', `Type \`${config.prefix}help ${this.name}\` for more information`)
+			.addField('Help', `Typ \`${config.prefix}help ${this.name}\` Voor meer informatie`)
 			.setFooter(guild.name, guild.iconURL());
 
 		let ticket;
@@ -42,8 +42,8 @@ module.exports = {
 			ticket = await Ticket.findOne({ where: { channel: channel.id } });
 			if (!ticket) {
 				notTicket
-					.setTitle('❌ **Channel is not a ticket**')
-					.setDescription(`${channel} is not a ticket channel.`);
+					.setTitle('❌ **Deze channel is geen ticket**')
+					.setDescription(`${channel} is geen ticket.`);
 				return message.channel.send(notTicket);
 			}
 		}
@@ -53,10 +53,10 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.err_colour)
 					.setAuthor(message.author.username, message.author.displayAvatarURL())
-					.setTitle('❌ **No permission**')
-					.setDescription(`You don't have permission to alter ${channel} as it does not belong to you and you are not staff.`)
-					.addField('Usage', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
-					.addField('Help', `Type \`${config.prefix}help ${this.name}\` for more information`)
+					.setTitle('❌ **Geen premisie**')
+					.setDescription(`U heeft geen toestemming om te wijzigen ${channel} omdat het niet van jou is en je geen personeel bent.`)
+					.addField('Gebruik', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
+					.addField('Help', `Type \`${config.prefix}help ${this.name}\` voor meer informatie`)
 					.setFooter(guild.name, guild.iconURL())
 			);
 		}
@@ -68,10 +68,10 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.err_colour)
 					.setAuthor(message.author.username, message.author.displayAvatarURL())
-					.setTitle('❌ **Unknown member**')
-					.setDescription('Please mention a valid member.')
-					.addField('Usage', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
-					.addField('Help', `Type \`${config.prefix}help ${this.name}\` for more information`)
+					.setTitle('❌ **Onbekende gebruiker**')
+					.setDescription('Vermeld een geldig lid.')
+					.addField('gebruik', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
+					.addField('Help', `Typ \`${config.prefix}help ${this.name}\` Voor meer informatie`)
 					.setFooter(guild.name, guild.iconURL())
 			);
 		}
@@ -89,8 +89,8 @@ module.exports = {
 					new MessageEmbed()
 						.setColor(config.colour)
 						.setAuthor(member.user.username, member.user.displayAvatarURL())
-						.setTitle('**Member added**')
-						.setDescription(`${member} has been added by ${message.author}`)
+						.setTitle('**gebruiker toegevoegt**')
+						.setDescription(`${member} is toegevoegt aan ${message.author}`)
 						.setFooter(guild.name, guild.iconURL())
 				);
 			}
@@ -99,12 +99,12 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.colour)
 					.setAuthor(member.user.username, member.user.displayAvatarURL())
-					.setTitle('✅ **Member added**')
-					.setDescription(`${member} has been added to <#${ticket.channel}>`)
+					.setTitle('✅ **Lid toegevoegd**')
+					.setDescription(`${member} is toegevoegd aan <#${ticket.channel}>`)
 					.setFooter(guild.name, guild.iconURL())
 			);
 
-			log.info(`${message.author.tag} added a user to a ticket (#${message.channel.id})`);
+			log.info(`${message.author.tag} gebruiker toegevoegd aan ticket (#${message.channel.id})`);
 		} catch (error) {
 			log.error(error);
 		}
