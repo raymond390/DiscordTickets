@@ -69,7 +69,7 @@ module.exports = {
 		let embed = new MessageEmbed()
 			.setColor(config.colour)
 			.setAuthor(user.username, user.displayAvatarURL())
-			.setTitle(`${context === 'self' ? 'Your' : user.username + '\'s'} tickets`)
+			.setTitle(`${context === 'self' ? 'jouwn' : user.username + '\'s'} tickets`)
 			.setFooter(guild.name + ' | Dit bericht wordt binnen 60 seconden verwijderd', guild.iconURL());
 
 		/* if (config.transcripts.web.enabled) {
@@ -96,7 +96,7 @@ module.exports = {
 
 		}
 
-		let pre = context === 'self' ? 'You have' : user.username + ' has';
+		let pre = context === 'self' ? 'Jij hebt' : user.username + ' has';
 		embed.addField('Open tickets', openTickets.count === 0 ? `${pre} geen open tickets.` : open.join('\n\n'), false);
 		embed.addField('Gesloten tickets', closedTickets.count === 0 ? `${pre} geen ouwe tickets` : closed.join('\n\n'), false);
 
