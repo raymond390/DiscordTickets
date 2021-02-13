@@ -1,0 +1,15 @@
+[20:25:33 12th feb. 21] [Discord Bot test#8757] :> @here,
+@​Raymond has created a new ticket
+[20:25:39 12th feb. 21] [Discord Bot test#8757] :> 
+https://cdn.discordapp.com/attachments/809867812431462430/809867838839849000/how-can-we-help.gif
+[20:25:39 12th feb. 21] [Discord Bot test#8757] :> 
+[20:25:53 12th feb. 21] [Raymond#1362] :> djpfjipe
+[20:25:55 12th feb. 21] [Raymond#1362] :> -hepl
+[20:25:58 12th feb. 21] [Raymond#1362] :> -help
+[20:25:59 12th feb. 21] [Discord Bot test#8757] :> 
+[20:26:10 12th feb. 21] [Raymond#1362] :> -transcript
+[20:26:10 12th feb. 21] [Discord Bot test#8757] :> 
+[20:26:23 12th feb. 21] [Raymond#1362] :> -transcript 809867812431462430
+[20:26:24 12th feb. 21] [Discord Bot test#8757] :> 
+[20:26:37 12th feb. 21] [Raymond#1362] :> -close
+[20:26:37 12th feb. 21] [Discord Bot test#8757] :> 

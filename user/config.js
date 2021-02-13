@@ -110,7 +110,7 @@ module.exports = {
 		},
 		discord: {
 			enabled: false,
-			channel: '' // ID of your log channel
+			channel: '810080619992186892' // ID of your log channel
 		}
 	},
 
