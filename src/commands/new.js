@@ -15,10 +15,10 @@ const config = require(join(__dirname, '../../user/', require('../').config));
 
 module.exports = {
 	name: 'new',
-	description: 'Create a new support ticket',
-	usage: '[brief description]',
+	description: 'Maak een nieuw supportticket aan',
+	usage: '[korte beschrijving]',
 	aliases: ['ticket', 'open'],
-	example: 'new my server won\'t start',
+	example: 'new ik heb een probleem',
 	args: false,
 	disabled: !config.commands.new.enabled,
 	async execute(client, message, args, {config, Ticket}) {
@@ -35,7 +35,7 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.err_colour)
 					.setTitle('❌ **Error**')
-					.setDescription(`${config.name} has not been set up correctly. Could not find a 'support team' role with the id \`${config.staff_role}\``)
+					.setDescription(`${config.name} is niet correct ingesteld. Kan geen rol 'staffteam' vinden met de id \`${config.staff_role}\``)
 					.setFooter(guild.name, guild.iconURL())
 			);
 
@@ -60,9 +60,9 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.err_colour)
 					.setAuthor(message.author.username, message.author.displayAvatarURL())
-					.setTitle(`❌ **You already have ${tickets.count} or more open tickets**`)
-					.setDescription(`Use \`${config.prefix}close\` to close unneeded tickets.\n\n${ticketList.join(',\n')}`)
-					.setFooter(guild.name + ' | This message will be deleted in 15 seconds', guild.iconURL())
+					.setTitle(`❌ **Je hebt al ${tickets.count} of meer openstaande tickets**`)
+					.setDescription(`gebruik \`${config.prefix}close\` om onnodige tickets te sluiten.\n\n${ticketList.join(',\n')}`)
+					.setFooter(guild.name + ' | Dit bericht wordt binnen 15 seconden verwijderd', guild.iconURL())
 			);
 
 			return setTimeout(async () => {
@@ -78,8 +78,8 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.err_colour)
 					.setAuthor(message.author.username, message.author.displayAvatarURL())
-					.setTitle('❌ **Description too long**')
-					.setDescription('Please limit your ticket topic to less than 256 characters. A short sentence will do.')
+					.setTitle('❌ **Beschrijving te lang**')
+					.setDescription('Beperk uw ticketonderwerp tot minder dan 256 tekens. Een korte zin is voldoende.')
 					.setFooter(guild.name, guild.iconURL())
 			);
 		}
@@ -133,9 +133,9 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.colour)
 					.setAuthor(message.author.username, message.author.displayAvatarURL())
-					.setTitle('✅ **Ticket created**')
-					.setDescription(`Your ticket has been created: ${c}`)
-					.setFooter(client.user.username + ' | This message will be deleted in 15 seconds', client.user.displayAvatarURL())
+					.setTitle('✅ **Ticket aangemaakt**')
+					.setDescription(`Je ticket is aangemaakt: ${c}`)
+					.setFooter(client.user.username + ' | Dit bericht wordt binnen 15 seconden verwijderd', client.user.displayAvatarURL())
 			);
 
 			setTimeout(async () => {
@@ -157,7 +157,7 @@ module.exports = {
 				ping = `@${config.tickets.ping},\n`;
 			}
 
-			await c.send(ping + `${message.author} has created a new ticket`);
+			await c.send(ping + `${message.author} heeft een nieuwe ticket gemaakt`);
 
 			if (config.tickets.send_img) {
 				const images = fs.readdirSync(join(__dirname, '../../user/images'));
@@ -193,12 +193,12 @@ module.exports = {
 						.setTitle('New ticket')
 						.setDescription(`\`${topic}\``)
 						.addField('Creator', message.author, true)
-						.addField('Channel', c, true)
+						.addField('kanaal', c, true)
 						.setFooter(guild.name, guild.iconURL())
 						.setTimestamp()
 				);
 
-			log.info(`${message.author.tag} created a new ticket (#${name})`);
+			log.info(`${message.author.tag} Maakte een nieuwe ticket (#${name})`);
 
 
 		}).catch(log.error);

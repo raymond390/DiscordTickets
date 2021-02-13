@@ -12,7 +12,7 @@ const log = new Logger();
 
 module.exports = {
 	name: 'remove',
-	description: 'Remove a member from ticket channel',
+	description: 'Verwijder een persoon uit een ticket',
 	usage: '<@member> [... #channel]',
 	aliases: ['none'],
 	example: 'remove @member from #ticket-23',
@@ -23,10 +23,10 @@ module.exports = {
 		const notTicket = new MessageEmbed()
 			.setColor(config.err_colour)
 			.setAuthor(message.author.username, message.author.displayAvatarURL())
-			.setTitle('❌ **This isn\'t a ticket channel**')
-			.setDescription('Use this command in the ticket channel you want to remove a user from, or mention the channel.')
-			.addField('Usage', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
-			.addField('Help', `Type \`${config.prefix}help ${this.name}\` for more information`)
+			.setTitle('❌ **Dit is geen ticket kanaal**')
+			.setDescription('Gebruik deze opdracht in het ticketkanaal waarvan u een gebruiker wilt verwijderen, of vermeld het kanaal.')
+			.addField('Gebruik', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
+			.addField('Help', `Typ \`${config.prefix}help ${this.name}\` Voor meer informatie`)
 			.setFooter(guild.name, guild.iconURL());
 
 		let ticket;
@@ -45,8 +45,8 @@ module.exports = {
 			ticket = await Ticket.findOne({ where: { channel: channel.id } });
 			if (!ticket) {
 				notTicket
-					.setTitle('❌ **Channel is not a ticket**')
-					.setDescription(`${channel} is not a ticket channel.`);
+					.setTitle('❌ **Kanaal is geen ticket**')
+					.setDescription(`${channel} Is geen ticket kanaal.`);
 				return message.channel.send(notTicket);
 			}
 		}
@@ -56,10 +56,10 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.err_colour)
 					.setAuthor(message.author.username, message.author.displayAvatarURL())
-					.setTitle('❌ **No permission**')
-					.setDescription(`You don't have permission to alter ${channel} as it does not belong to you and you are not staff.`)
-					.addField('Usage', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
-					.addField('Help', `Type \`${config.prefix}help ${this.name}\` for more information`)
+					.setTitle('❌ **Geen premissies**')
+					.setDescription(`U heeft geen toestemming om te wijzigen ${channel} omdat het niet van jou is en je geen personeel bent.`)
+					.addField('Gebruik', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
+					.addField('Help', `Type\`${config.prefix}help ${this.name}\`Voor meer informatie`)
 					.setFooter(guild.name, guild.iconURL())
 			);
 		}
@@ -71,10 +71,10 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.err_colour)
 					.setAuthor(message.author.username, message.author.displayAvatarURL())
-					.setTitle('❌ **Unknown member**')
-					.setDescription('Please mention a valid member.')
-					.addField('Usage', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
-					.addField('Help', `Type \`${config.prefix}help ${this.name}\` for more information`)
+					.setTitle('❌ **Onbekende gebruiker**')
+					.setDescription('Vermeld een geldig lid.')
+					.addField('Gebruik', `\`${config.prefix}${this.name} ${this.usage}\`\n`)
+					.addField('Help', `typ \`${config.prefix}help ${this.name}\` Voor meer informatie`)
 					.setFooter(guild.name, guild.iconURL())
 			);
 
@@ -91,8 +91,8 @@ module.exports = {
 					new MessageEmbed()
 						.setColor(config.colour)
 						.setAuthor(member.user.username, member.user.displayAvatarURL())
-						.setTitle('**Member removed**')
-						.setDescription(`${member} has been removed by ${message.author}`)
+						.setTitle('**Gebruiker verwijdert**')
+						.setDescription(`${member} is verwijdert door ${message.author}`)
 						.setFooter(guild.name, guild.iconURL())
 				);
 			}
@@ -101,12 +101,12 @@ module.exports = {
 				new MessageEmbed()
 					.setColor(config.colour)
 					.setAuthor(member.user.username, member.user.displayAvatarURL())
-					.setTitle('✅ **Member removed**')
-					.setDescription(`${member} has been removed from <#${ticket.channel}>`)
+					.setTitle('✅ **Gebruiker verwijdert**')
+					.setDescription(`${member} is verwijderd uit <#${ticket.channel}>`)
 					.setFooter(guild.name, guild.iconURL())
 			);
 
-			log.info(`${message.author.tag} removed a user from a ticket (#${message.channel.id})`);
+			log.info(`${message.author.tag} heeft een gebruiker verwijderd van een ticket (#${message.channel.id})`);
 		} catch (error) {
 			log.error(error);
 		}

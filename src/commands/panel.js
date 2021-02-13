@@ -12,7 +12,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'panel',
-	description: 'Create or a panel widget in the channel the command is used in. Note that there can only be 1 panel.',
+	description: 'Maak of een paneelwidget in het kanaal waarin de opdracht wordt gebruikt. Merk op dat er maar 1 paneel kan zijn.',
 	usage: '',
 	aliases: ['widget'],
 	args: false,
@@ -40,7 +40,7 @@ module.exports = {
 			try {
 				panel = await client.channels.cache.get(chanID.get('value')).messages.fetch(msgID.get('value')); // get old panel message
 				if (panel) {
-					panel.delete({ reason: 'Creating new panel/widget' }).then(() => log.info('Deleted old panel')).catch(e => log.warn(e)); // delete old panel
+					panel.delete({ reason: 'Nieuw paneel / widget aanmaken' }).then(() => log.info('Oud paneel verwijderd')).catch(e => log.warn(e)); // delete old panel
 				}
 			} catch (e) {
 				log.warn('Couldn\'t delete old panel');

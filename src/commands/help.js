@@ -12,7 +12,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'help',
-	description: 'Display help menu',
+	description: 'Helpmenu weergeven',
 	usage: '[command]',
 	aliases: ['command', 'commands'],
 	example: 'help new',
@@ -40,9 +40,9 @@ module.exports = {
 					.setTitle('Commands')
 					.setColor(config.colour)
 					.setDescription(
-						`\nThe commands you have access to are listed below. Type \`${config.prefix}help [command]\` for more information about a specific command.
+						`\nDe opdrachten waartoe u toegang hebt, worden hieronder vermeld. Type \`${config.prefix}help [commando]\ voor meer informatie over een specifiek commando.
 						\n${cmds.join('\n\n')}
-						\nPlease contact a member of staff if you require assistance.`
+						\nNeem contact op met **Raymond#1362** voor bugs of problemen`
 					)
 					.setFooter(guild.name, guild.iconURL())
 			).catch((error) => {
@@ -58,7 +58,7 @@ module.exports = {
 				return message.channel.send(
 					new MessageEmbed()
 						.setColor(config.err_colour)
-						.setDescription(`❌ **Invalid command name** (\`${config.prefix}help\`)`)
+						.setDescription(`❌ **Ongeldig command naam** (\`${config.prefix}help\`)`)
 				);
 
 
@@ -78,8 +78,8 @@ module.exports = {
 
 
 			if (command.permission && !message.member.hasPermission(command.permission)) {
-				cmd.addField('Required Permission', `\`${command.permission}\` :exclamation: You don't have permission to use this command`, true);
-			} else cmd.addField('Required Permission', `\`${command.permission || 'none'}\``, true);
+				cmd.addField('Vereiste toestemming', `\`${command.permission}\` :uitroep: U heeft geen toestemming om dit commando te gebruiken`, true);
+			} else cmd.addField('Vereiste toestemming', `\`${command.permission || 'none'}\``, true);
 
 			message.channel.send(cmd);
 		}
